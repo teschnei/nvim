@@ -32,9 +32,21 @@ return {
     ["<leader>b"] = { name = "Buffers" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+    j = false,
+    k = false,
+    ["<C-j>"] = { function() require("smart-splits").move_cursor_left() end, desc = "Move to left split" },
+    ["<C-k>"] = { function() require("smart-splits").move_cursor_down() end, desc = "Move to below split" },
+    ["<C-i>"] = { function() require("smart-splits").move_cursor_up() end, desc = "Move to above split" },
+    ["<C-l>"] = { function() require("smart-splits").move_cursor_right() end, desc = "Move to right split" },
   },
   t = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
   },
+  [""] = {
+    i = { "k", noremap = true },
+    j = { "h", noremap = true },
+    k = { "j", noremap = true },
+    h = { "i", noremap = true },
+  }
 }
