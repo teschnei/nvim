@@ -25,6 +25,10 @@ return function(local_vim)
   local_vim.opt.spell = false
   local_vim.opt.signcolumn = "auto"
   local_vim.opt.wrap = false
+  local_vim.opt.tabstop = 4 -- A TAB character looks like 4 spaces
+  local_vim.opt.expandtab = true -- Pressing the TAB key will insert spaces instead of a TAB character
+  local_vim.opt.softtabstop = 4 -- Number of spaces inserted instead of a TAB character
+  local_vim.opt.shiftwidth = 4 -- Number of spaces inserted when indenting
 
   local_vim.g.mapleader = " " -- sets vim.g.mapleader
   local_vim.g.autoformat_enabled = true -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
