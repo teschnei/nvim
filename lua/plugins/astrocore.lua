@@ -1,5 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
@@ -12,7 +10,7 @@ return {
   opts = {
     -- Configure core features of AstroNvim
     features = {
-      large_buf = { size = 1024 * 256, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
+      large_buf = { size = 1024 * 256, lines = 100000 }, -- set global limits for large files for disabling features like treesitter
       autopairs = true, -- enable autopairs at start
       cmp = true, -- enable completion at start
       diagnostics = { virtual_text = true, virtual_lines = false }, -- diagnostic settings on startup
@@ -45,6 +43,10 @@ return {
         spell = false, -- sets vim.opt.spell
         signcolumn = "yes", -- sets vim.opt.signcolumn to yes
         wrap = false, -- sets vim.opt.wrap
+        tabstop = 4,
+        expandtab = true,
+        softtabstop = 4,
+        shiftwidth = 4,
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
@@ -79,6 +81,25 @@ return {
 
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
+        j = false,
+        k = false,
+        ["<C-j>"] = { function() require("smart-splits").move_cursor_left() end, desc = "Move to left split" },
+        ["<C-k>"] = { function() require("smart-splits").move_cursor_down() end, desc = "Move to below split" },
+        ["<C-i>"] = { function() require("smart-splits").move_cursor_up() end, desc = "Move to above split" },
+        ["<C-l>"] = { function() require("smart-splits").move_cursor_right() end, desc = "Move to right split" },
+        ["<C-Up>"] = { function() require("smart-splits").resize_up() end, desc = "Resize split up" },
+        ["<C-Down>"] = { function() require("smart-splits").resize_down() end, desc = "Resize split down" },
+        ["<C-Left>"] = { function() require("smart-splits").resize_left() end, desc = "Resize split left" },
+        ["<C-Right>"] = { function() require("smart-splits").resize_right() end, desc = "Resize split right" },
+      },
+      t = {
+        ["<esc>"] = [[<C-\><C-n>]],
+      },
+      [""] = {
+        i = { "k", noremap = true },
+        j = { "h", noremap = true },
+        k = { "j", noremap = true },
+        h = { "i", noremap = true },
       },
     },
   },
