@@ -10,5 +10,6 @@ return {
   { import = "astrocommunity.colorscheme.tokyonight-nvim", enabled = true },
   { import = "astrocommunity.colorscheme.dracula-nvim", enabled = false },
   { import = "astrocommunity.pack.rust" },
+  { import = "astrocommunity.pack.cs" },
   -- import/override with your plugins folder
 }
