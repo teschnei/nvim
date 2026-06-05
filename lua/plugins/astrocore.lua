@@ -102,5 +102,12 @@ return {
         h = { "i", noremap = true },
       },
     },
+    treesitter = {
+      ensure_installed = {
+        "lua",
+        "vim",
+        -- add more arguments for adding more treesitter parsers
+      },
+    },
   },
 }
